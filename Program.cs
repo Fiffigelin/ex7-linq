@@ -32,8 +32,8 @@ class Program
     WhereFunction(studenter);
     SelectFunction(studenter);
     OrderByFunction(studenter);
+    CountFunction(studenter);
 
-    // === COUNT ===
     // === TAKE ===
     // === DISTINCT ===
     // === ANY / ALL ===
@@ -99,5 +99,16 @@ class Program
     {
       Console.WriteLine($"{s.Poang} {s.Namn}");
     }
+  }
+
+  public static void CountFunction(List<Student> studenter)
+  {
+    // === COUNT ===
+    var countedStudents = studenter.Count();
+    Console.WriteLine($"\n===== COUNT =====");
+    Console.WriteLine($"Antal studenter: {countedStudents}");
+
+    var studentsInClassA = studenter.Count(s => s.Klass == "A");
+    Console.WriteLine($"Antal studenter i klass A: {studentsInClassA}");
   }
 }
