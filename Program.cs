@@ -28,6 +28,31 @@ class Program
  new Student { Id = 8, Namn = "Hanna", Alder = 20, Klass = "B", Poang = 95 }
  };
     Console.WriteLine("LINQ-ÖVNINGAR MED STUDENTER\n");
-    //  ---
+
+    // === WHERE ===
+    var olderThan20 = studenter.Where(s => s.Alder > 20);
+    var pointsOver80 = studenter.Where(s => s.Poang > 80);
+
+    Console.WriteLine("===== WHERE =====\nÄldre än 20 år");
+    foreach (var s in olderThan20)
+    {
+      Console.WriteLine(s.Namn);
+    }
+    Console.WriteLine("\nHar över 80 i poäng");
+    foreach (var s in pointsOver80)
+    {
+      Console.WriteLine(s.Namn);
+    }
+
+    // === SELECT ===
+    // === ORDER BY ===
+    // === COUNT ===
+    // === TAKE ===
+    // === DISTINCT ===
+    // === ANY / ALL ===
+    // === FIRSTORDEFAUL / LAST / SINGLE ===
+    // === GROUP BY ===
+    // === SUM / AVERAGE / MIN / MAX ===
+
   }
 }
