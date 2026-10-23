@@ -33,8 +33,8 @@ class Program
     SelectFunction(studenter);
     OrderByFunction(studenter);
     CountFunction(studenter);
+    TakeFunction(studenter);
 
-    // === TAKE ===
     // === DISTINCT ===
     // === ANY / ALL ===
     // === FIRSTORDEFAUL / LAST / SINGLE ===
@@ -109,6 +109,22 @@ class Program
     Console.WriteLine($"Antal studenter: {countedStudents}");
 
     var studentsInClassA = studenter.Count(s => s.Klass == "A");
+    Console.WriteLine($"Antal studenter i klass A: {studentsInClassA}");
+  }
+  public static void TakeFunction(List<Student> studenter)
+  {
+    // === TAKE ===
+    var threeFirstStudents = studenter.Take(3);
+    Console.WriteLine($"\n===== COUNT =====");
+    Console.WriteLine($"Tre första studenterna");
+    int index = 0;
+    foreach (var s in threeFirstStudents)
+    {
+      Console.WriteLine($"{index}: {s.Namn}");
+      index++;
+    }
+
+    var studentsInClassA = studenter.OrderByDescending(s => s.Poang).Take(2);
     Console.WriteLine($"Antal studenter i klass A: {studentsInClassA}");
   }
 }
