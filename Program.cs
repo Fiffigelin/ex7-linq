@@ -36,8 +36,8 @@ class Program
     TakeFunction(studenter);
     DistinctFunction(studenter);
     AnyAllFunction(studenter);
+    FirstDefaultLastSingleFunction(studenter);
 
-    // === FIRSTORDEFAUL / LAST / SINGLE ===
     // === GROUP BY ===
     // === SUM / AVERAGE / MIN / MAX ===
 
@@ -128,6 +128,7 @@ class Program
     var studentsInClassA = studenter.OrderByDescending(s => s.Poang).Take(2);
     Console.WriteLine($"Antal studenter i klass A: {studentsInClassA}");
   }
+
   public static void DistinctFunction(List<Student> studenter)
   {
     // === DISTINCT ===
@@ -146,6 +147,7 @@ class Program
       Console.WriteLine(s);
     }
   }
+
   public static void AnyAllFunction(List<Student> studenter)
   {
     // === ANY / ALL ===
@@ -155,5 +157,19 @@ class Program
 
     var isEveryScoreEqual50 = studenter.All(s => s.Poang >= 50);
     Console.WriteLine($"Är allas poäng åtminstone 50: {isEveryScoreEqual50}");
+  }
+
+  public static void FirstDefaultLastSingleFunction(List<Student> studenter)
+  {
+    // === FIRSTORDEFAUL / LAST / SINGLE ===
+    var firstStudent = studenter.FirstOrDefault(); // <== hahahah variabelnamnet kan jag jobba på lite
+    Console.WriteLine($"\n=== FIRSTORDEFAUL / LAST / SINGLE ===");
+    Console.WriteLine($"Första studenten: {firstStudent?.Namn}");
+
+    var lastStudent = studenter.Last();
+    Console.WriteLine($"Sista studenten: {lastStudent.Namn}");
+
+    var studentWithId = studenter.Single(s => s.Id == 6);
+    Console.WriteLine($"Student med Id 6: {studentWithId.Namn}");
   }
 }
