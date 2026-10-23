@@ -35,7 +35,6 @@ class Program
     CountFunction(studenter);
     TakeFunction(studenter);
 
-    // === DISTINCT ===
     // === ANY / ALL ===
     // === FIRSTORDEFAUL / LAST / SINGLE ===
     // === GROUP BY ===
@@ -111,11 +110,12 @@ class Program
     var studentsInClassA = studenter.Count(s => s.Klass == "A");
     Console.WriteLine($"Antal studenter i klass A: {studentsInClassA}");
   }
+
   public static void TakeFunction(List<Student> studenter)
   {
     // === TAKE ===
     var threeFirstStudents = studenter.Take(3);
-    Console.WriteLine($"\n===== COUNT =====");
+    Console.WriteLine($"\n===== TAKE =====");
     Console.WriteLine($"Tre första studenterna");
     int index = 0;
     foreach (var s in threeFirstStudents)
@@ -126,5 +126,10 @@ class Program
 
     var studentsInClassA = studenter.OrderByDescending(s => s.Poang).Take(2);
     Console.WriteLine($"Antal studenter i klass A: {studentsInClassA}");
+  }
+  public static void DistinctFunction(List<Student> studenter)
+  {
+    // === DISTINCT ===
+    Console.WriteLine($"\n===== DISTINCT =====");
   }
 }
