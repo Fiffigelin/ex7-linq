@@ -29,11 +29,12 @@ class Program
  };
     Console.WriteLine("LINQ-ÖVNINGAR MED STUDENTER\n");
 
-    WhereFunction(studenter);
-    SelectFunction(studenter);
-    OrderByFunction(studenter);
-    CountFunction(studenter);
-    TakeFunction(studenter);
+    // WhereFunction(studenter);
+    // SelectFunction(studenter);
+    // OrderByFunction(studenter);
+    // CountFunction(studenter);
+    // TakeFunction(studenter);
+    DistinctFunction(studenter);
 
     // === ANY / ALL ===
     // === FIRSTORDEFAUL / LAST / SINGLE ===
@@ -130,6 +131,19 @@ class Program
   public static void DistinctFunction(List<Student> studenter)
   {
     // === DISTINCT ===
+    var uniqueClasses = studenter.Select(s => s.Klass).Distinct();
     Console.WriteLine($"\n===== DISTINCT =====");
+    Console.WriteLine($"Unika klasser");
+    foreach (var s in uniqueClasses)
+    {
+      Console.WriteLine(s);
+    }
+
+    var uniqueAges = studenter.Select(s => s.Alder).Distinct();
+    Console.WriteLine($"Unika åldrar");
+    foreach (var s in uniqueAges)
+    {
+      Console.WriteLine(s);
+    }
   }
 }
