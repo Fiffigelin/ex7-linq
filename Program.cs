@@ -29,6 +29,22 @@ class Program
  };
     Console.WriteLine("LINQ-ÖVNINGAR MED STUDENTER\n");
 
+    WhereFunction(studenter);
+    SelectFunction(studenter);
+    OrderByFunction(studenter);
+
+    // === COUNT ===
+    // === TAKE ===
+    // === DISTINCT ===
+    // === ANY / ALL ===
+    // === FIRSTORDEFAUL / LAST / SINGLE ===
+    // === GROUP BY ===
+    // === SUM / AVERAGE / MIN / MAX ===
+
+  }
+
+  public static void WhereFunction(List<Student> studenter)
+  {
     // === WHERE ===
     var olderThan20 = studenter.Where(s => s.Alder > 20);
     Console.WriteLine("===== WHERE =====\nÄldre än 20 år");
@@ -43,7 +59,10 @@ class Program
     {
       Console.WriteLine(s.Namn);
     }
+  }
 
+  public static void SelectFunction(List<Student> studenter)
+  {
     // === SELECT ===
     var studentsName = studenter.Select(s => s.Namn);
     Console.WriteLine("\n===== SELECT =====\nStudenternas namn");
@@ -62,7 +81,10 @@ class Program
     {
       Console.WriteLine($"Namn: {s.Name} Poäng: {s.Score}");
     }
+  }
 
+  public static void OrderByFunction(List<Student> studenter)
+  {
     // === ORDER BY ===
     var orderByAge = studenter.OrderBy(s => s.Alder);
     Console.WriteLine("\n===== ORDER BY =====\nYngst till äldst");
@@ -77,15 +99,5 @@ class Program
     {
       Console.WriteLine($"{s.Poang} {s.Namn}");
     }
-
-
-    // === COUNT ===
-    // === TAKE ===
-    // === DISTINCT ===
-    // === ANY / ALL ===
-    // === FIRSTORDEFAUL / LAST / SINGLE ===
-    // === GROUP BY ===
-    // === SUM / AVERAGE / MIN / MAX ===
-
   }
 }
