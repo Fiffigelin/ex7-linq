@@ -29,14 +29,14 @@ class Program
  };
     Console.WriteLine("LINQ-ÖVNINGAR MED STUDENTER\n");
 
-    // WhereFunction(studenter);
-    // SelectFunction(studenter);
-    // OrderByFunction(studenter);
-    // CountFunction(studenter);
-    // TakeFunction(studenter);
+    WhereFunction(studenter);
+    SelectFunction(studenter);
+    OrderByFunction(studenter);
+    CountFunction(studenter);
+    TakeFunction(studenter);
     DistinctFunction(studenter);
+    AnyAllFunction(studenter);
 
-    // === ANY / ALL ===
     // === FIRSTORDEFAUL / LAST / SINGLE ===
     // === GROUP BY ===
     // === SUM / AVERAGE / MIN / MAX ===
@@ -145,5 +145,15 @@ class Program
     {
       Console.WriteLine(s);
     }
+  }
+  public static void AnyAllFunction(List<Student> studenter)
+  {
+    // === ANY / ALL ===
+    var isThereAnyScoreBy100 = studenter.Any(s => s.Poang == 100); // <== hahahah variabelnamnet kan jag jobba på lite
+    Console.WriteLine($"\n===== ANY / ALL =====");
+    Console.WriteLine($"Finns det en student med 100 poäng?: {isThereAnyScoreBy100}");
+
+    var isEveryScoreEqual50 = studenter.All(s => s.Poang >= 50);
+    Console.WriteLine($"Är allas poäng åtminstone 50: {isEveryScoreEqual50}");
   }
 }
