@@ -31,13 +31,13 @@ class Program
 
     // === WHERE ===
     var olderThan20 = studenter.Where(s => s.Alder > 20);
-    var pointsOver80 = studenter.Where(s => s.Poang > 80);
-
     Console.WriteLine("===== WHERE =====\nÄldre än 20 år");
     foreach (var s in olderThan20)
     {
       Console.WriteLine(s.Namn);
     }
+
+    var pointsOver80 = studenter.Where(s => s.Poang > 80);
     Console.WriteLine("\nHar över 80 i poäng");
     foreach (var s in pointsOver80)
     {
@@ -45,6 +45,24 @@ class Program
     }
 
     // === SELECT ===
+    var studentsName = studenter.Select(s => s.Namn);
+    Console.WriteLine("\n===== SELECT =====\nStudenternas namn");
+    foreach (var s in studentsName)
+    {
+      Console.WriteLine(s);
+    }
+
+    var namePoints = studenter.Select(s => new
+    {
+      Name = s.Namn,
+      Score = s.Poang
+    });
+    Console.WriteLine("\nVisa namn och poäng");
+    foreach (var s in namePoints)
+    {
+      Console.WriteLine($"Namn: {s.Name} Poäng: {s.Score}");
+    }
+
     // === ORDER BY ===
     // === COUNT ===
     // === TAKE ===
