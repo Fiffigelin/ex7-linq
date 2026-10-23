@@ -64,6 +64,21 @@ class Program
     }
 
     // === ORDER BY ===
+    var orderByAge = studenter.OrderBy(s => s.Alder);
+    Console.WriteLine("\n===== ORDER BY =====\nYngst till äldst");
+    foreach (var s in orderByAge)
+    {
+      Console.WriteLine($"{s.Alder} {s.Namn}");
+    }
+
+    var orderByScore = studenter.OrderByDescending(s => s.Poang);
+    Console.WriteLine("\nHögsta poäng");
+    foreach (var s in orderByScore)
+    {
+      Console.WriteLine($"{s.Poang} {s.Namn}");
+    }
+
+
     // === COUNT ===
     // === TAKE ===
     // === DISTINCT ===
