@@ -38,6 +38,7 @@ class Program
     AnyAllFunction(studenter);
     FirstDefaultLastSingleFunction(studenter);
     GroupByFunction(studenter);
+    SumAverageMinMaxFunction(studenter);
   }
 
   public static void WhereFunction(List<Student> studenter)
@@ -191,5 +192,20 @@ class Program
         Console.WriteLine(student.Namn);
       }
     }
+  }
+
+  public static void SumAverageMinMaxFunction(List<Student> studenter)
+  {
+    // === SUM / AVERAGE / MIN / MAX ===
+    var sum = studenter.Sum(s => s.Poang);
+    Console.WriteLine($"\n=== SUM / AVERAGE / MIN / MAX ===");
+    Console.WriteLine($"Summa: {sum}");
+
+    var average = studenter.Average(s => s.Poang);
+    Console.WriteLine($"Average: {average}");
+
+    var min = studenter.Min(s => s.Poang);
+    var max = studenter.Max(s => s.Poang);
+    Console.WriteLine($"Min: {min}\nMax: {max}");
   }
 }
