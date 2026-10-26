@@ -123,7 +123,11 @@ class Program
     }
 
     var studentsInClassA = studenter.OrderByDescending(s => s.Poang).Take(2);
-    Console.WriteLine($"Antal studenter i klass A: {studentsInClassA}");
+    Console.WriteLine($"\nDe högsta poängen:");
+    foreach (var student in studentsInClassA)
+    {
+      Console.WriteLine(student.Poang);
+    }
   }
 
   public static void DistinctFunction(List<Student> studenter)
