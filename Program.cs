@@ -37,10 +37,7 @@ class Program
     DistinctFunction(studenter);
     AnyAllFunction(studenter);
     FirstDefaultLastSingleFunction(studenter);
-
-    // === GROUP BY ===
-    // === SUM / AVERAGE / MIN / MAX ===
-
+    GroupByFunction(studenter);
   }
 
   public static void WhereFunction(List<Student> studenter)
@@ -162,7 +159,7 @@ class Program
   public static void FirstDefaultLastSingleFunction(List<Student> studenter)
   {
     // === FIRSTORDEFAUL / LAST / SINGLE ===
-    var firstStudent = studenter.FirstOrDefault(); // <== hahahah variabelnamnet kan jag jobba på lite
+    var firstStudent = studenter.FirstOrDefault();
     Console.WriteLine($"\n=== FIRSTORDEFAUL / LAST / SINGLE ===");
     Console.WriteLine($"Första studenten: {firstStudent?.Namn}");
 
@@ -171,5 +168,24 @@ class Program
 
     var studentWithId = studenter.Single(s => s.Id == 6);
     Console.WriteLine($"Student med Id 6: {studentWithId.Namn}");
+  }
+
+  public static void GroupByFunction(List<Student> studenter)
+  {
+    // === GROUP BY ===
+    var groups = studenter.GroupBy(s => s.Klass);
+    Console.WriteLine($"\n=== GROUP BY ===");
+
+    foreach (var group in groups)
+    {
+      // det var ett tag sedan jag använt mig av GroupBy
+      // helt glömt av att man har en Key
+      // https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupby?view=net-10.0
+      Console.WriteLine($"\nKlass: {group.Key}");
+      foreach (var student in group)
+      {
+        Console.WriteLine(student.Namn);
+      }
+    }
   }
 }
